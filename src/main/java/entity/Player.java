@@ -45,12 +45,10 @@ public class Player extends Entity{
     public void draw(Graphics2D g2){
         BufferedImage sprite = switch (this.getDirection()) {
             case "up" -> this.up1;
-            case "down" -> this.down1;
             case "left" -> this.left1;
             case "right" -> this.right1;
             default -> null;
         };
-        System.out.println("Move to the " + this.getDirection());
         g2.drawImage(sprite, this.getX(), this.getY(), gP.getTileSize(), gP.getTileSize(), null);
     }
 
@@ -64,7 +62,6 @@ public class Player extends Entity{
             this.left2  = ImageIO.read(getClass().getResourceAsStream("/playersprites/moverIzquierda2.png"));
             this.right1 = ImageIO.read(getClass().getResourceAsStream("/playersprites/moverDerecha1.png"));
             this.right2 = ImageIO.read(getClass().getResourceAsStream("/playersprites/moverDerecha2.png"));
-            System.out.println("Player sprites loaded.");
         } catch(IOException e){
             e.printStackTrace();
         }
