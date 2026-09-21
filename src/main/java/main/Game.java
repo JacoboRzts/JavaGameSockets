@@ -18,7 +18,6 @@ public class Game {
         ventana.add(panel);
         ventana.pack();
 
-
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
 
