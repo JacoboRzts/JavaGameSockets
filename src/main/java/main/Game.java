@@ -1,26 +1,21 @@
 package main;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 /*
  * Starter point, main class Game
  */
 public class Game {
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         JFrame ventana = new JFrame();
-
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setResizable(false);
-        ventana.setTitle("Cloud Game");
-
         GamePanel panel = new GamePanel();
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setLocationRelativeTo(null);
+        ventana.setTitle("Cloud Game");
+        ventana.setResizable(false);
+        ventana.setVisible(true);
         ventana.add(panel);
         ventana.pack();
-
-        ventana.setLocationRelativeTo(null);
-        ventana.setVisible(true);
-
         panel.startGameThread();
     }
 }

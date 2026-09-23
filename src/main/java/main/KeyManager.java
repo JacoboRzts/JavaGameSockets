@@ -3,20 +3,19 @@ package main;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
 /*
  * Manage the keyboard events.
  */
 public class KeyManager implements KeyListener {
-    private boolean keyUp, keyDown, keyLeft, keyRigth;
+    private boolean keyUp, keyDown, keyLeft, keyRight;
 
     @Override
-    public void keyTyped(KeyEvent e){
+    public void keyTyped(KeyEvent e) {
 
     }
 
     @Override
-    public void keyPressed(KeyEvent e){
+    public void keyPressed(KeyEvent e) {
         switch(e.getKeyCode()){
             case KeyEvent.VK_W:
                 keyUp = true;
@@ -28,13 +27,13 @@ public class KeyManager implements KeyListener {
                 keyLeft = true;
                 break;
             case KeyEvent.VK_D:
-                keyRigth = true;
+                keyRight = true;
                 break;
         }
     }
 
     @Override
-    public void keyReleased(KeyEvent e){
+    public void keyReleased(KeyEvent e) {
         switch(e.getKeyCode()){
             case KeyEvent.VK_W:
                 keyUp = false;
@@ -46,7 +45,7 @@ public class KeyManager implements KeyListener {
                 keyLeft = false;
                 break;
             case KeyEvent.VK_D:
-                keyRigth = false;
+                keyRight = false;
                 break;
         }
     }
@@ -54,16 +53,13 @@ public class KeyManager implements KeyListener {
     public boolean getKeyUp(){
         return this.keyUp;
     }
-
     public boolean getKeyDown(){
         return this.keyDown;
     }
-
     public boolean getKeyLeft(){
         return this.keyLeft;
     }
-
     public boolean getKeyRight(){
-        return this.keyRigth;
+        return this.keyRight;
     }
 }

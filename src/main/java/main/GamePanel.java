@@ -1,8 +1,11 @@
 package main;
 
 import entity.Player;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Dimension;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 /*
  * Mange the main frame of the game
@@ -15,17 +18,16 @@ public class GamePanel extends JPanel implements Runnable {
     final int maxRows = 15;
     final int widthScreen = tileSize * maxCols;
     final int heightScreen = tileSize * maxRows;
+    final int fps = 40;
 
-    Thread gameThread;
     KeyManager kM = new KeyManager();
     Player player = new Player(this, kM);
-    int fps = 40;
+    Thread gameThread;
 
-    public GamePanel(){
+    public GamePanel() {
         this.setPreferredSize(new Dimension(this.widthScreen, this.heightScreen));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
-
         this.addKeyListener(kM);
         this.setFocusable(true);
     }
@@ -42,6 +44,7 @@ public class GamePanel extends JPanel implements Runnable {
         long lastTime = System.nanoTime();
         long actualTime;
 
+        // Update the screen only 'fps' times.
         while(gameThread != null){
             actualTime = System.nanoTime();
             delta += (actualTime - lastTime) / drawInterval;
@@ -62,28 +65,14 @@ public class GamePanel extends JPanel implements Runnable {
         g2.dispose();
     }
 
-    public void update(){
+    public void update() {
         player.update();
     }
 
-    public int getTileSize() {
-        return this.tileSize;
-    }
-
-    public int getMaxCols() {
-        return this.maxCols;
-    }
-
-    public int getMaxRows(){
-        return this.maxRows;
-    }
-
-    public int getWidthScreen(){
-        return this.widthScreen;
-    }
-
-    public int getHeightScreen(){
-        return this.heightScreen;
-    }
-
+    /** Getters */
+    public int getTileSize() { return this.tileSize; }
+    public int getMaxCols() { return this.maxCols; }
+    public int getMaxRows(){ return this.maxRows; }
+    public int getWidthScreen(){ return this.widthScreen; }
+    public int getHeightScreen() { return this.heightScreen; }
 }
