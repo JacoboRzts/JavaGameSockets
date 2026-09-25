@@ -44,8 +44,8 @@ public class GamePanel extends JPanel implements Runnable {
         long lastTime = System.nanoTime();
         long actualTime;
 
-        // Update the screen only 'fps' times.
         while(gameThread != null){
+            // Update the screen only 'fps' times.
             actualTime = System.nanoTime();
             delta += (actualTime - lastTime) / drawInterval;
             lastTime = actualTime;

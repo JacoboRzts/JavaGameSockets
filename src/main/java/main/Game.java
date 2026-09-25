@@ -7,15 +7,15 @@ import javax.swing.JFrame;
  */
 public class Game {
     public static void main(String[] args) {
-        JFrame ventana = new JFrame();
+        JFrame window = new JFrame();
         GamePanel panel = new GamePanel();
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setLocationRelativeTo(null);
-        ventana.setTitle("Cloud Game");
-        ventana.setResizable(false);
-        ventana.setVisible(true);
-        ventana.add(panel);
-        ventana.pack();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLocationRelativeTo(null);
+        window.setTitle("Cloud Game");
+        window.setResizable(false);
+        window.setVisible(true);
+        window.add(panel);
+        window.pack();
         panel.startGameThread();
     }
 }
