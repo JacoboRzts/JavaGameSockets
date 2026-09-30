@@ -3,8 +3,8 @@ package main;
 import javax.swing.JFrame;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Scanner;
 import client.Client;
+import io.github.cdimascio.dotenv.Dotenv;
 
 /*
  * Starter point, main class Game
@@ -22,10 +22,10 @@ public class Game {
         window.pack();
         panel.startGameThread();
 
-        Scanner input = new Scanner(System.in);
         try {
-            String user = System.getenv("USER");
-            String pass = System.getenv("PASSWORD");
+            Dotenv dotenv = Dotenv.configure().directory("./src").load();
+            String user = dotenv.get("USER");
+            String pass = dotenv.get("PASS");
             System.out.println("USER: "+ user);
             System.out.println("PASS: "+ pass);
             Socket socket = new Socket("127.0.0.1", 5555);
