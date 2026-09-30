@@ -1,4 +1,4 @@
-package Main;
+package client;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -53,7 +53,7 @@ public class Client {
         }
     }
 
-    public void getMensaje() {
+    public void getMsg() {
         Thread listener = new Thread(() -> {
             try {
                 while (socket.isConnected() && !socket.isClosed()) {
